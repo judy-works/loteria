@@ -1,0 +1,166 @@
+html, body {
+    touch-action: manipulation;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+    background-color: #F7F0DF;
+    min-height: 100vh;
+}
+
+/* CARD */
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 10px auto 20px auto;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.3s ease-in-out;
+}
+
+#cardImg {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* GLOW + SOFT PULSE */
+.card.glow {
+    box-shadow: 0 0 25px 8px rgba(255, 200, 0, 0.9);
+    animation: pulseGlow 1.6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 20px 6px rgba(255, 200, 0, 0.7); }
+    50% { box-shadow: 0 0 30px 12px rgba(255, 200, 0, 1); }
+    100% { box-shadow: 0 0 20px 6px rgba(255, 200, 0, 0.7); }
+}
+
+/* PLAY/PAUSE OVERLAY */
+.overlay-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+    opacity: 0.9;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.4));
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.overlay-pop {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* CARD POP BOUNCE */
+.card.pop {
+    animation: cardPop 0.18s ease-out;
+}
+
+@keyframes cardPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.94); }
+    100% { transform: scale(1); }
+}
+
+/* FLIP ANIMATION */
+.card.flip {
+    animation: flip 0.4s;
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(90deg); }
+    100% { transform: rotateY(0deg); }
+}
+
+/* SHUFFLE WIGGLE */
+.shuffle-anim {
+    animation: shuffleWiggle 0.45s ease-in-out;
+}
+
+@keyframes shuffleWiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+    75% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #FF8A00;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    width: 45%;
+}
+
+button:hover {
+    background-color: #e67a00;
+}
+
+/* AUTOPLAY */
+.autoplay {
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* TIMER BAR */
+#timerBar {
+    width: 100%;
+    height: 6px;
+    background-color: #8A2BE2;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 350px;
+    border-radius: 10px;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
